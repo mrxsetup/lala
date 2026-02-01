@@ -1,214 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LALA PREDICTION - Premium Portfolio</title>
 
-    <!-- Meta Pixel Code -->
-    <script>
-        ! function(f, b, e, v, n, t, s) {
-            if (f.fbq) return;
-            n = f.fbq = function() {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n;
-            n.push = n;
-            n.loaded = !0;
-            n.version = '2.0';
-            n.queue = [];
-            t = b.createElement(e);
-            t.async = !0;
-            t.src = v;
-            s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }
-        (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1183539050152137');
-        fbq('track', 'PageView');
-    </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
-    <noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1183539050152137&ev=PageView&noscript=1"/>
-</noscript>
-    <!-- End Meta Pixel Code -->
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: { sans: ['Poppins', 'sans-serif'] }
+}
+}
+}
+</script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garud Fixer (Baazigar)</title>
+<style>
+@keyframes gradient {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+.animate-gradient {
+background-size: 200% 200%;
+animation: gradient 5s ease infinite;
+}
 
-    <!-- Preload background for faster render -->
-    <link rel="preload" as="image" href="https://applescoop.org/image/wallpapers/iphone/iphone-dark-black-and-blue-abstract-impede-depth-effect-with-think-lines-apple-iphone-21-09-2025-1758398684-hd-wallpaper.webp">
+.glass {
+background: rgba(0,0,0,0.55);
+backdrop-filter: blur(22px);
+border: 1px solid rgba(255,255,255,0.15);
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-        }
+.glow {
+box-shadow: 0 0 35px rgba(255,180,0,.8), 0 0 100px rgba(255,80,0,.55);
+}
 
-        body {
-            background: #0c0f1a url("https://applescoop.org/image/wallpapers/iphone/iphone-dark-black-and-blue-abstract-impede-depth-effect-with-think-lines-apple-iphone-21-09-2025-1758398684-hd-wallpaper.webp") center/cover no-repeat fixed;
-            color: #fff;
-            min-height: 100vh;
-        }
+.pulse-btn {
+animation: pulse 1.5s infinite;
+}
 
-        .overlay {
-            background: rgba(10, 12, 22, .82);
-            min-height: 100vh;
-        }
+@keyframes pulse {
+0% { transform: scale(1); }
+50% { transform: scale(1.08); }
+100% { transform: scale(1); }
+}
 
-        .container {
-            max-width: 420px;
-            margin: auto;
-            padding: 20px 15px 90px;
-        }
+.shine:hover {
+filter: brightness(1.3);
+transform: scale(1.06);
+transition: .25s;
+}
+</style>
 
-        /* Profile */
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-        .profile-box {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .profile-box img {
-            width: 95px;
-            height: 95px;
-            border-radius: 50%;
-            border: 2px solid #ffffff55;
-        }
-
-        .profile-box h1 {
-            margin-top: 10px;
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        /* Card */
-
-        .card {
-            background: #ffffff12;
-            border: 1px solid #ffffff20;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        /* Button */
-
-        .btn {
-            display: block;
-            margin-top: 14px;
-            padding: 14px;
-            border-radius: 30px;
-            background: #1fa2ff;
-            color: #fff;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        /* Features */
-
-        .features {
-            list-style: none;
-            margin-top: 8px;
-        }
-
-        .features li {
-            font-size: .95rem;
-            margin: 6px 0;
-        }
-
-        .features li::before {
-            content: "✓ ";
-            color: #4caf50;
-        }
-
-        /* Footer */
-
-        .footer {
-            text-align: center;
-            font-size: .85rem;
-            opacity: .85;
-        }
-
-        .footer a {
-            color: #6bd4ff;
-            text-decoration: none;
-        }
-
-        /* Bottom CTA */
-
-        .bottom-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #000000cc;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .bottom-bar a {
-            display: inline-block;
-            width: 90%;
-            max-width: 320px;
-            padding: 14px;
-            border-radius: 30px;
-            background: #12d8fa;
-            color: #000;
-            font-weight: 700;
-            text-decoration: none;
-        }
-    </style>
+fbq('init','933688235777642');
+fbq('track','PageView');
+</script>
 </head>
 
-<body>
-    <div class="overlay">
+<body class="bg-black min-h-screen text-white">
 
-        <div class="container">
+<!-- BACKGROUND -->
+<div class="fixed inset-0">
+<img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=2000" class="w-full h-full object-cover opacity-35">
+<div class="absolute inset-0 bg-gradient-to-br from-yellow-900/95 via-black/80 to-orange-900/95"></div>
+</div>
 
-            <div class="profile-box">
-                <img src="https://d1yei2z3i6k35z.cloudfront.net/13184094/6952a267b21b7_40bb2f3d-25fd-484d-9b63-a8468a701820.jfif" alt="Garud Fixer">
-                <h1>Garud Fixer (Baazigar)</h1>
-            </div>
+<div class="relative z-10 flex justify-center items-center min-h-screen p-4">
 
-            <div class="card">
-                <h2>Cricket Match Predictions</h2>
-                <p style="opacity:.9;">Well researched match insights & analysis</p>
-                <a href="https://t.me/+9WnufKITJK9lM2I1" class="btn">Join Free Telegram Channel</a>
-            </div>
+<div class="glass max-w-lg w-full rounded-[2.2rem] p-7 shadow-2xl">
 
-            <div class="card">
-                <h2>What You Get</h2>
-                <ul class="features">
-                    <li>Match & Toss Analysis</li>
-                    <li>Team Performance Insights</li>
-                    <li>Daily Free Updates</li>
-                    <li>Simple & Clean Info</li>
-                </ul>
-            </div>
+<!-- HEADER -->
+<div class="text-center mb-6">
+<h1 class="text-5xl font-black animate-gradient bg-gradient-to-r from-yellow-400 via-orange-400 to-red-500 text-transparent bg-clip-text">
+LALA PREDICTION
+</h1>
+<p class="text-gray-300 mt-2 tracking-wide">Premium Cricket Predictions</p>
+</div>
 
-            <div class="card">
-                <p style="opacity:.9;">
-                    Trusted by thousands of cricket lovers across India.
-                </p>
-            </div>
+<!-- PROFILE -->
+<div class="flex gap-4 bg-white/5 p-5 rounded-xl border border-white/10 mb-6">
 
-            <div class="footer">
-                Marketing by :
-                <a href="https://t.me/+lpl9wSvnR3YyZjA1">QB Agency™</a>
-            </div>
+<div class="w-24 h-24 rounded-xl bg-gradient-to-r from-yellow-500 to-red-500 p-[3px] glow">
+<img src="https://github.com/mrxsetup/THE-BIG-BULL/blob/main/BIGBULLIMAGE.jpg?raw=true" 
+class="rounded-xl w-full h-full object-cover">
+</div>
 
-        </div>
+<div class="flex-1">
+<div class="flex gap-2 mb-2">
+<span class="px-3 py-1 bg-yellow-600 rounded-full text-xs font-bold">⭐ Premium Analyst</span>
+<span class="px-3 py-1 bg-red-600 rounded-full text-xs font-bold">LIVE</span>
+</div>
 
-        <div class="bottom-bar">
-            <a href="https://t.me/+9WnufKITJK9lM2I1">अभी टेलीग्राम जॉइन करें</a>
-        </div>
+<p class="text-yellow-300 text-sm font-semibold">
+👥 <span id="count">0</span>+ Members
+</p>
+</div>
 
-    </div>
+</div>
+
+<!-- TELEGRAM BUTTON -->
+<a href="https://t.me/+P1rxPGMcjYYzYjQ1" target="_blank" class="block pulse-btn mb-6">
+
+<div class="bg-gradient-to-r from-yellow-600 to-red-600 p-5 rounded-xl shadow-xl shine">
+
+<div class="flex justify-center items-center gap-3 text-xl font-black tracking-wide">
+🚀 JOIN TELEGRAM NOW
+</div>
+
+</div>
+</a>
+
+<!-- FEATURES -->
+<div class="space-y-3 text-sm font-semibold">
+
+<div class="bg-white/5 p-4 rounded-xl">✔ Expert Cricket Analysis</div>
+<div class="bg-white/5 p-4 rounded-xl">⚡ Live Match Updates</div>
+<div class="bg-white/5 p-4 rounded-xl">👥 Strong Cricket Community</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="text-center text-xs text-gray-400 mt-6 border-t border-white/10 pt-4">
+For entertainment only<br>
+<span class="text-yellow-400 font-semibold">Advertise BY MRXSETUP</span>
+</div>
+
+</div>
+</div>
+
+<script>
+// MEMBER COUNTER 0 → 110000
+let count = document.getElementById("count");
+let target = 110000;
+let current = 0;
+
+let counter = setInterval(() => {
+current += Math.ceil(target / 300);
+if (current >= target) {
+current = target;
+clearInterval(counter);
+}
+count.innerText = current.toLocaleString();
+}, 25);
+</script>
+
 </body>
-
 </html>
